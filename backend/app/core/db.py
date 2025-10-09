@@ -9,9 +9,14 @@ connect_args = {}
 if settings.ENVIRONMENT == "production":
     connect_args = {"sslmode": "require"}
 
+# Connection pooling settings to prevent "SSL connection closed unexpectedly" errors
+# pool_pre_ping checks connections before using them
+# pool_recycle prevents stale connections (300 seconds = 5 minutes)
 engine = create_engine(
     str(settings.SQLALCHEMY_DATABASE_URI),
-    connect_args=connect_args
+    connect_args=connect_args,
+    pool_pre_ping=True,
+    pool_recycle=300
 )
 
 
