@@ -4,7 +4,15 @@ from app import crud
 from app.core.config import settings
 from app.models import User, UserCreate
 
-engine = create_engine(str(settings.SQLALCHEMY_DATABASE_URI))
+# Configure SSL for production database connections (required by Render)
+connect_args = {}
+if settings.ENVIRONMENT == "production":
+    connect_args = {"sslmode": "require"}
+
+engine = create_engine(
+    str(settings.SQLALCHEMY_DATABASE_URI),
+    connect_args=connect_args
+)
 
 
 # make sure all SQLModel models are imported (app.models) before initializing DB
