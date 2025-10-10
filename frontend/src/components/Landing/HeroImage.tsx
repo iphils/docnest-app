@@ -1,4 +1,4 @@
-import { Box, Text, VStack } from "@chakra-ui/react"
+import { Box, Image, Text, VStack } from "@chakra-ui/react"
 import { HeroImageProps } from "../../data/types"
 
 export function HeroImage({
@@ -10,8 +10,7 @@ export function HeroImage({
 }: HeroImageProps) {
   if (src) {
     return (
-      <Box
-        as="img"
+      <Image
         src={src}
         alt={alt}
         h={height}

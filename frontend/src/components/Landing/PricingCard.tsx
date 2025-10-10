@@ -2,6 +2,7 @@ import {
   Box,
   Badge,
   Heading,
+  Image,
   Text,
   Button,
   VStack,
@@ -35,8 +36,7 @@ export function PricingCard({
       <VStack gap={4} align="stretch">
         {/* Image */}
         {imageSrc ? (
-          <Box
-            as="img"
+          <Image
             src={imageSrc}
             alt={imageAlt}
             h="200px"
@@ -74,7 +74,6 @@ export function PricingCard({
             <ChecklistItem
               key={feature.id}
               text={feature.text}
-              checked={feature.included}
             />
           ))}
         </VStack>

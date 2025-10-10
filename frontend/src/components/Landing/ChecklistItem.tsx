@@ -4,7 +4,6 @@ import { ChecklistItemProps } from "../../data/types"
 
 export function ChecklistItem({
   text,
-  checked = true,
   iconColor = "green",
   icon
 }: ChecklistItemProps) {

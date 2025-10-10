@@ -1,4 +1,4 @@
-import { Box, Grid, Heading, Text, VStack } from "@chakra-ui/react"
+import { Box, Grid, Heading, Image, Text, VStack } from "@chakra-ui/react"
 import { InfoSectionProps } from "../../data/types"
 
 export function InfoSection({
@@ -32,9 +32,8 @@ export function InfoSection({
             {images.map((image, index) => {
               if (image.src) {
                 return (
-                  <Box
+                  <Image
                     key={index}
-                    as="img"
                     src={image.src}
                     alt={image.alt}
                     h="120px"

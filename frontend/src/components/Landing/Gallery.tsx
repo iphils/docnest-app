@@ -1,4 +1,4 @@
-import { Box, Grid, Heading, Text } from "@chakra-ui/react"
+import { Box, Grid, Heading, Image, Text } from "@chakra-ui/react"
 import { GalleryProps } from "../../data/types"
 
 export function Gallery({
@@ -22,9 +22,8 @@ export function Gallery({
         {images.map((image) => {
           if (image.src) {
             return (
-              <Box
+              <Image
                 key={image.id}
-                as="img"
                 src={image.src}
                 alt={image.alt}
                 h={imageHeight}
