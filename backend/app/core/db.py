@@ -5,9 +5,10 @@ from app.core.config import settings
 from app.models import User, UserCreate
 
 # Configure SSL for production database connections (required by Render)
+# Using 'prefer' instead of 'require' to avoid SSL handshake issues with Render's internal DB connections
 connect_args = {}
 if settings.ENVIRONMENT == "production":
-    connect_args = {"sslmode": "require"}
+    connect_args = {"sslmode": "prefer"}
 
 # Connection pooling settings to prevent "SSL connection closed unexpectedly" errors
 # pool_pre_ping checks connections before using them
