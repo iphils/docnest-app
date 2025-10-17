@@ -1,5 +1,3 @@
-const libraryImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Duke_Humfrey%27s_Library_Interior_6%2C_Bodleian_Library%2C_Oxford%2C_UK_-_Diliff.jpg/640px-Duke_Humfrey%27s_Library_Interior_6%2C_Bodleian_Library%2C_Oxford%2C_UK_-_Diliff.jpg"
-
 export const studyRoomData = {
   header: {
     title: "NEET PG Study Room",
@@ -7,7 +5,7 @@ export const studyRoomData = {
   },
 
   hero: {
-    src: libraryImage,
+    src: "/assets/images/study-room/view1.jpeg",
     alt: "Study Room Facility",
     placeholderTitle: "Study Room Hero Image",
     placeholderSubtitle: "Modern study room with students preparing",
@@ -54,66 +52,63 @@ export const studyRoomData = {
     title: "Study Room Plans",
     plans: [
       {
-        imageSrc: libraryImage,
         imageAlt: "Daily Pass",
-        imagePlaceholder: "Daily Pass Image",
-        badge: { label: "Flexible", colorScheme: "yellow" },
+        iconLabel: "Daily",
+        badge: { label: "Flexible", colorScheme: "orange" },
         title: "Daily Pass",
         description: "Perfect for occasional study sessions and exam preparation.",
         features: [
           { id: "1", text: "8 hours access", included: true },
           { id: "2", text: "Free Wi-Fi", included: true },
-          { id: "3", text: "Coffee/Tea included", included: true },
-          { id: "4", text: "Power outlets at desk", included: true }
+          { id: "3", text: "Power outlets at desk", included: true },
+          { id: "4", text: "Climate controlled", included: true }
         ],
         price: {
-          amount: "500",
+          amount: "350",
           period: "per day"
         },
         ctaLabel: "Get Daily Pass"
       },
       {
-        imageSrc: libraryImage,
         imageAlt: "Monthly Plan",
-        imagePlaceholder: "Monthly Plan Image",
-        badge: { label: "Most Popular", colorScheme: "blue" },
+        iconLabel: "Monthly",
+        badge: { label: "Most Popular", colorScheme: "teal" },
         title: "Monthly Unlimited",
         description: "Unlimited access for serious aspirants preparing for NEET PG.",
         features: [
           { id: "1", text: "24/7 unlimited access", included: true },
           { id: "2", text: "Reserved seat option", included: true },
-          { id: "3", text: "Free printing (100 pages)", included: true },
-          { id: "4", text: "Locker facility", included: true },
-          { id: "5", text: "Free refreshments", included: true }
+          { id: "3", text: "Locker facility", included: true },
+          { id: "4", text: "Free Wi-Fi", included: true },
+          { id: "5", text: "Power outlets at desk", included: true }
         ],
         price: {
-          amount: "8,000",
+          amount: "1,500",
           period: "per month"
         },
         ctaLabel: "Subscribe Monthly",
         highlighted: true
       },
       {
-        imageSrc: libraryImage,
-        imageAlt: "Annual Plan",
-        imagePlaceholder: "Annual Plan Image",
-        badge: { label: "Best Value", colorScheme: "green" },
-        title: "Annual Premium",
-        description: "Complete preparation package with maximum savings and benefits.",
+        imageAlt: "3 Months Plan",
+        iconLabel: "3 Months",
+        badge: { label: "Best Value", colorScheme: "purple" },
+        title: "3 Months Plan",
+        description: "Extended access plan with savings for dedicated NEET PG preparation.",
         features: [
-          { id: "1", text: "All monthly benefits", included: true },
-          { id: "2", text: "Personal storage cabinet", included: true },
-          { id: "3", text: "Free printing (1500 pages)", included: true },
-          { id: "4", text: "Mock test access", included: true },
+          { id: "1", text: "24/7 unlimited access", included: true },
+          { id: "2", text: "Reserved seat option", included: true },
+          { id: "3", text: "Locker facility", included: true },
+          { id: "4", text: "Personal storage cabinet", included: true },
           { id: "5", text: "Priority booking", included: true }
         ],
         price: {
-          amount: "75,000",
-          period: "per year (Save ₹21,000)",
-          originalPrice: "96,000",
-          savings: "21,000"
+          amount: "3,600",
+          period: "for 3 months (Save ₹900)",
+          originalPrice: "4,500",
+          savings: "900"
         },
-        ctaLabel: "Subscribe Annual"
+        ctaLabel: "Subscribe 3 Months"
       }
     ],
     columns: { base: 1, lg: 3 }
@@ -126,8 +121,8 @@ export const studyRoomData = {
         title: "Study Environment",
         titleColor: "blue.600",
         images: [
-          { src: libraryImage, alt: "Individual Desks", placeholder: "Individual Desks" },
-          { src: libraryImage, alt: "Reading Area", placeholder: "Reading Area" }
+          { src: "/assets/images/study-room/view1.jpeg", alt: "Individual Desks", placeholder: "Individual Desks" },
+          { src: "/assets/images/study-room/view2.jpeg", alt: "Reading Area", placeholder: "Reading Area" }
         ],
         description: "Spacious individual study desks with ample lighting, power outlets, and storage space. Separate zones for group discussions and silent study."
       },
@@ -135,10 +130,10 @@ export const studyRoomData = {
         title: "Technical Facilities",
         titleColor: "green.600",
         images: [
-          { src: libraryImage, alt: "Digital Library", placeholder: "Digital Library" },
-          { src: libraryImage, alt: "Computer Lab", placeholder: "Computer Lab" }
+          { src: "/assets/images/study-room/view3.jpeg", alt: "Digital Library", placeholder: "Digital Library" },
+          { src: "/assets/images/study-room/view4.jpeg", alt: "Computer Lab", placeholder: "Computer Lab" }
         ],
-        description: "High-speed Wi-Fi, digital library access, computer terminals for online tests, and printing facilities available 24/7."
+        description: "High-speed Wi-Fi, digital library access, and computer terminals for online tests available 24/7."
       }
     ]
   },
@@ -212,13 +207,6 @@ export const studyRoomData = {
         description: "Extensive collection of NEET PG books and materials"
       },
       {
-        id: "tests",
-        iconColor: "green",
-        iconLabel: "Tests",
-        title: "Mock Tests",
-        description: "Regular practice tests and performance analysis"
-      },
-      {
         id: "support",
         iconColor: "orange",
         iconLabel: "Support",
@@ -233,18 +221,18 @@ export const studyRoomData = {
         description: "Peer learning and group study sessions"
       }
     ],
-    columns: { base: 2, md: 4 }
+    columns: { base: 2, md: 3 }
   },
 
   gallery: {
     title: "Study Room Gallery",
     images: [
-      { id: "1", src: libraryImage, alt: "Modern Library", placeholder: "Study Room Photo 1" },
-      { id: "2", src: libraryImage, alt: "Reading Room", placeholder: "Study Room Photo 2" },
-      { id: "3", src: libraryImage, alt: "Study Hall", placeholder: "Study Room Photo 3" },
-      { id: "4", src: libraryImage, alt: "Library Interior", placeholder: "Study Room Photo 4" },
-      { id: "5", src: libraryImage, alt: "Study Campus", placeholder: "Study Room Photo 5" },
-      { id: "6", src: libraryImage, alt: "Classic Library", placeholder: "Study Room Photo 6" }
+      { id: "1", src: "/assets/images/study-room/view1.jpeg", alt: "Study Room View 1", placeholder: "Study Room Photo 1" },
+      { id: "2", src: "/assets/images/study-room/view2.jpeg", alt: "Study Room View 2", placeholder: "Study Room Photo 2" },
+      { id: "3", src: "/assets/images/study-room/view3.jpeg", alt: "Study Room View 3", placeholder: "Study Room Photo 3" },
+      { id: "4", src: "/assets/images/study-room/view4.jpeg", alt: "Study Room View 4", placeholder: "Study Room Photo 4" },
+      { id: "5", src: "/assets/images/study-room/view1.jpeg", alt: "Study Room View 5", placeholder: "Study Room Photo 5" },
+      { id: "6", src: "/assets/images/study-room/view2.jpeg", alt: "Study Room View 6", placeholder: "Study Room Photo 6" }
     ],
     columns: { base: 2, md: 3 },
     imageHeight: "200px"

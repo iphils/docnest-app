@@ -64,6 +64,7 @@ export interface PricingCardProps {
   imageSrc?: string
   imageAlt: string
   imagePlaceholder?: string
+  iconLabel?: string
   badge: {
     label: string
     colorScheme: string

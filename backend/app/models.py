@@ -1,4 +1,6 @@
 import uuid
+from datetime import date, datetime
+from enum import Enum
 
 from pydantic import EmailStr
 from sqlmodel import Field, Relationship, SQLModel
@@ -44,6 +46,7 @@ class User(UserBase, table=True):
     id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
     hashed_password: str
     items: list["Item"] = Relationship(back_populates="owner", cascade_delete=True)
+    bookings: list["SeatBooking"] = Relationship(back_populates="user", cascade_delete=True)
 
 
 # Properties to return via API, id is always required
@@ -111,3 +114,105 @@ class TokenPayload(SQLModel):
 class NewPassword(SQLModel):
     token: str
     new_password: str = Field(min_length=8, max_length=40)
+
+
+# ============================================================================
+# Seat Booking Models
+# ============================================================================
+
+class BookingStatus(str, Enum):
+    PENDING = "pending"
+    CONFIRMED = "confirmed"
+    CANCELLED = "cancelled"
+    EXPIRED = "expired"
+
+
+class PlanType(str, Enum):
+    DAILY = "daily"
+    MONTHLY = "monthly"
+    ANNUAL = "annual"
+
+
+# Seat model - represents physical seats in the study room
+class SeatBase(SQLModel):
+    seat_number: str = Field(max_length=10, description="Seat identifier (e.g., A1, A2)")
+    is_active: bool = Field(default=True, description="Whether seat is available for booking")
+    description: str | None = Field(default=None, max_length=255)
+
+
+class Seat(SeatBase, table=True):
+    id: int = Field(default=None, primary_key=True)
+    created_at: datetime = Field(default_factory=datetime.utcnow)
+
+    bookings: list["SeatBooking"] = Relationship(back_populates="seat")
+
+
+class SeatPublic(SeatBase):
+    id: int
+    created_at: datetime
+
+
+class SeatsPublic(SQLModel):
+    data: list[SeatPublic]
+    count: int
+
+
+# Seat Booking model
+class SeatBookingBase(SQLModel):
+    seat_id: int = Field(foreign_key="seat.id")
+    booking_date: date = Field(description="Date for which seat is booked")
+    plan_type: PlanType = Field(description="Type of booking plan")
+    start_time: datetime | None = Field(default=None, description="Start time for hourly bookings")
+    end_time: datetime | None = Field(default=None, description="End time for hourly bookings")
+    notes: str | None = Field(default=None, max_length=500)
+
+
+class SeatBookingCreate(SeatBookingBase):
+    pass
+
+
+class SeatBookingUpdate(SQLModel):
+    status: BookingStatus | None = None
+    notes: str | None = Field(default=None, max_length=500)
+
+
+class SeatBooking(SeatBookingBase, table=True):
+    id: uuid.UUID = Field(default_factory=uuid.uuid4, primary_key=True)
+    user_id: uuid.UUID = Field(foreign_key="user.id", nullable=False, ondelete="CASCADE")
+    status: BookingStatus = Field(default=BookingStatus.PENDING, index=True)
+
+    # Payment details
+    amount_paid: float = Field(default=0.0)
+    payment_id: str | None = Field(default=None, max_length=255)
+
+    # Timestamps
+    created_at: datetime = Field(default_factory=datetime.utcnow)
+    updated_at: datetime = Field(default_factory=datetime.utcnow)
+
+    # Relationships
+    user: User = Relationship(back_populates="bookings")
+    seat: Seat = Relationship(back_populates="bookings")
+
+
+class SeatBookingPublic(SeatBookingBase):
+    id: uuid.UUID
+    user_id: uuid.UUID
+    status: BookingStatus
+    amount_paid: float
+    payment_id: str | None
+    created_at: datetime
+    updated_at: datetime
+
+
+class SeatBookingsPublic(SQLModel):
+    data: list[SeatBookingPublic]
+    count: int
+
+
+# Availability check response
+class SeatAvailability(SQLModel):
+    date: date
+    total_seats: int
+    available_seats: int
+    booked_seats: int
+    available_seat_ids: list[int]

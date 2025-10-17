@@ -15,6 +15,7 @@ export function PricingCard({
   imageSrc,
   imageAlt,
   imagePlaceholder,
+  iconLabel,
   badge,
   title,
   description,
@@ -34,7 +35,7 @@ export function PricingCard({
       borderColor={highlighted ? `${badge.colorScheme}.200` : "gray.200"}
     >
       <VStack gap={4} align="stretch">
-        {/* Image */}
+        {/* Icon or Image */}
         {imageSrc ? (
           <Image
             src={imageSrc}
@@ -46,16 +47,22 @@ export function PricingCard({
           />
         ) : (
           <Box
-            h="200px"
-            bg="gray.100"
+            h="120px"
+            bg={`${badge.colorScheme}.50`}
             borderRadius="md"
             display="flex"
             alignItems="center"
             justifyContent="center"
             border="2px dashed"
-            borderColor="gray.300"
+            borderColor={`${badge.colorScheme}.200`}
           >
-            <Text color="gray.500">{imagePlaceholder || imageAlt}</Text>
+            <Text
+              fontSize="3xl"
+              fontWeight="bold"
+              color={`${badge.colorScheme}.400`}
+            >
+              {iconLabel || imagePlaceholder || imageAlt}
+            </Text>
           </Box>
         )}
 
