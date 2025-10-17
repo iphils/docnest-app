@@ -25,9 +25,9 @@ export const studyRoomData = {
       {
         id: "access",
         iconColor: "green",
-        iconLabel: "24/7",
-        title: "24/7 Access",
-        description: "Study anytime with round-the-clock facility access"
+        iconLabel: "7AM-9PM",
+        title: "7 AM - 9 PM Access",
+        description: "Study during extended hours designed for optimal productivity"
       },
       {
         id: "climate",
@@ -76,7 +76,7 @@ export const studyRoomData = {
         title: "Monthly Unlimited",
         description: "Unlimited access for serious aspirants preparing for NEET PG.",
         features: [
-          { id: "1", text: "24/7 unlimited access", included: true },
+          { id: "1", text: "7 AM - 9 PM unlimited access", included: true },
           { id: "2", text: "Reserved seat option", included: true },
           { id: "3", text: "Locker facility", included: true },
           { id: "4", text: "Free Wi-Fi", included: true },
@@ -96,7 +96,7 @@ export const studyRoomData = {
         title: "3 Months Plan",
         description: "Extended access plan with savings for dedicated NEET PG preparation.",
         features: [
-          { id: "1", text: "24/7 unlimited access", included: true },
+          { id: "1", text: "7 AM - 9 PM unlimited access", included: true },
           { id: "2", text: "Reserved seat option", included: true },
           { id: "3", text: "Locker facility", included: true },
           { id: "4", text: "Personal storage cabinet", included: true },
@@ -143,23 +143,8 @@ export const studyRoomData = {
     schedules: [
       {
         id: "1",
-        timeRange: "6:00 AM - 12:00 PM",
-        badge: { label: "High Availability", colorScheme: "green" }
-      },
-      {
-        id: "2",
-        timeRange: "12:00 PM - 6:00 PM",
-        badge: { label: "Moderate", colorScheme: "yellow" }
-      },
-      {
-        id: "3",
-        timeRange: "6:00 PM - 12:00 AM",
-        badge: { label: "Peak Hours", colorScheme: "red" }
-      },
-      {
-        id: "4",
-        timeRange: "12:00 AM - 6:00 AM",
-        badge: { label: "Available", colorScheme: "green" }
+        timeRange: "7:00 AM - 9:00 PM",
+        badge: { label: "Open Daily", colorScheme: "green" }
       }
     ]
   },
@@ -227,11 +212,11 @@ export const studyRoomData = {
   gallery: {
     title: "Study Room Gallery",
     images: [
-      { id: "1", src: "/assets/images/study-room/view1.jpeg", alt: "Study Room View 1", placeholder: "Study Room Photo 1" },
-      { id: "2", src: "/assets/images/study-room/view2.jpeg", alt: "Study Room View 2", placeholder: "Study Room Photo 2" },
-      { id: "3", src: "/assets/images/study-room/view3.jpeg", alt: "Study Room View 3", placeholder: "Study Room Photo 3" },
-      { id: "4", src: "/assets/images/study-room/view4.jpeg", alt: "Study Room View 4", placeholder: "Study Room Photo 4" },
-      { id: "5", src: "/assets/images/study-room/view1.jpeg", alt: "Study Room View 5", placeholder: "Study Room Photo 5" },
+      { id: "1", src: "/assets/images/study-room/docnest-studyhall-arrangment.png", alt: "Seating Arrangement", placeholder: "Seating Arrangement" },
+      { id: "2", src: "/assets/images/study-room/view1.jpeg", alt: "Study Room View 1", placeholder: "Study Room Photo 1" },
+      { id: "3", src: "/assets/images/study-room/view2.jpeg", alt: "Study Room View 2", placeholder: "Study Room Photo 2" },
+      { id: "4", src: "/assets/images/study-room/view3.jpeg", alt: "Study Room View 3", placeholder: "Study Room Photo 3" },
+      { id: "5", src: "/assets/images/study-room/view4.jpeg", alt: "Study Room View 4", placeholder: "Study Room Photo 4" },
       { id: "6", src: "/assets/images/study-room/view2.jpeg", alt: "Study Room View 6", placeholder: "Study Room Photo 6" }
     ],
     columns: { base: 2, md: 3 },
@@ -240,22 +225,9 @@ export const studyRoomData = {
 
   cta: {
     title: "Start Your NEET PG Journey Today!",
-    description: "Join hundreds of successful NEET PG aspirants who have achieved their dreams by studying in our world-class facilities.",
-    buttons: [
-      {
-        id: "visit",
-        label: "Book a Visit",
-        variant: "solid" as const,
-        colorScheme: "whiteAlpha"
-      },
-      {
-        id: "call",
-        label: "Call Now",
-        variant: "outline" as const,
-        colorScheme: "whiteAlpha"
-      }
-    ],
-    contactInfo: "📞 +91-XXXXX-XXXXX | 📧 studyroom@neetpg.com",
+    description: "Contact us for more information, pricing details, or to schedule a visit to our facilities.",
+    buttons: [],
+    contactInfo: "Contact us via WhatsApp, phone, or email below",
     gradient: "linear(to-r, blue.400, purple.500)",
     textColor: "white"
   }
