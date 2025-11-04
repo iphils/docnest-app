@@ -103,10 +103,10 @@ export const studyRoomData = {
           { id: "5", text: "Priority booking", included: true }
         ],
         price: {
-          amount: "3,600",
-          period: "for 3 months (Save ₹900)",
+          amount: "4,000",
+          period: "for 3 months (Save ₹500)",
           originalPrice: "4,500",
-          savings: "900"
+          savings: "500"
         },
         ctaLabel: "Subscribe 3 Months"
       }
@@ -192,13 +192,6 @@ export const studyRoomData = {
         description: "Extensive collection of NEET PG books and materials"
       },
       {
-        id: "support",
-        iconColor: "orange",
-        iconLabel: "Support",
-        title: "Study Support",
-        description: "Doubt clearing sessions and study guidance"
-      },
-      {
         id: "groups",
         iconColor: "purple",
         iconLabel: "Events",
@@ -206,7 +199,7 @@ export const studyRoomData = {
         description: "Peer learning and group study sessions"
       }
     ],
-    columns: { base: 2, md: 3 }
+    columns: { base: 2, md: 2 }
   },
 
   gallery: {
@@ -217,7 +210,7 @@ export const studyRoomData = {
       { id: "3", src: "/assets/images/study-room/view2.jpeg", alt: "Study Room View 2", placeholder: "Study Room Photo 2" },
       { id: "4", src: "/assets/images/study-room/view3.jpeg", alt: "Study Room View 3", placeholder: "Study Room Photo 3" },
       { id: "5", src: "/assets/images/study-room/view4.jpeg", alt: "Study Room View 4", placeholder: "Study Room Photo 4" },
-      { id: "6", src: "/assets/images/study-room/view2.jpeg", alt: "Study Room View 6", placeholder: "Study Room Photo 6" }
+      { id: "6", src: "/assets/images/study-room/view5.jpeg", alt: "Study Room View 5", placeholder: "Study Room Photo 5" }
     ],
     columns: { base: 2, md: 3 },
     imageHeight: "200px"
